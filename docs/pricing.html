@@ -34,18 +34,31 @@ section { padding: 80px 0; }
 .section-subtitle { font-size: 1.05rem; color: var(--text2); max-width: 650px; margin-bottom: 40px; }
 
 /* Pricing Cards */
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-.price-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; text-align: center; transition: transform 0.2s, border-color 0.2s; position: relative; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.price-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 32px 24px; text-align: center; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; position: relative; }
 .price-card:hover { transform: translateY(-4px); }
-.price-card.featured { border-color: var(--teal); }
-.price-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 4px 14px; border-radius: 20px; background: var(--gradient1); color: #fff; font-size: .65rem; font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
-.price-tier { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); font-weight: 600; margin-bottom: 8px; }
-.price-amount { font-size: 1.8rem; font-weight: 800; margin-bottom: 4px; }
-.price-period { font-size: 0.8rem; color: var(--text3); margin-bottom: 16px; }
-.price-features { list-style: none; text-align: left; }
-.price-features li { padding: 6px 0; font-size: 0.85rem; color: var(--text2); border-bottom: 1px solid rgba(30,30,46,0.4); display: flex; align-items: center; gap: 8px; }
-.price-features li:last-child { border: none; }
-.price-revenue { margin-top: 12px; padding: 10px; background: rgba(6,182,212,0.05); border-radius: 8px; font-size: 0.8rem; color: var(--text3); }
+.price-card.featured { border-color: var(--teal); transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(20,184,166,0.2); }
+.price-card.featured:hover { transform: translateY(-12px) scale(1.02); }
+.price-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 6px 16px; border-radius: 20px; background: var(--gradient1); color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
+.price-tier { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+.price-amount { font-size: 2.5rem; font-weight: 800; color: var(--green); margin-bottom: 4px; }
+.price-period { font-size: 0.85rem; color: var(--text2); margin-bottom: 8px; }
+.price-desc { font-size: 0.85rem; color: var(--text3); margin-bottom: 20px; }
+.price-features { list-style: none; text-align: left; margin-bottom: 24px; }
+.price-features li { padding: 6px 0; font-size: 0.85rem; color: var(--text2); display: flex; align-items: center; gap: 8px; }
+.price-features li::before { content: '✓'; color: var(--green); font-weight: bold; }
+.select-btn { width: 100%; padding: 14px; background: var(--gradient1); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+.select-btn:hover { opacity: 0.9; }
+.price-card.featured .select-btn { background: var(--gradient2); }
+
+/* Breakeven Cards */
+.breakeven-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 32px; }
+.breakeven-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; }
+.breakeven-tier { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+.breakeven-price { font-size: 1.5rem; font-weight: 700; color: var(--accent2); margin-bottom: 8px; }
+.breakeven-daily { color: var(--green); font-weight: 600; margin-bottom: 8px; }
+.breakeven-days { color: var(--text3); font-size: 0.9rem; }
+.disclaimer { margin-top: 24px; padding: 16px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 10px; color: var(--text2); font-size: 0.85rem; text-align: center; }
 
 /* Feature Table */
 .feat-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; background: var(--card); border: 1px solid var(--border); }
@@ -114,85 +127,107 @@ section { padding: 80px 0; }
 </section>
 
 <!-- Pricing Cards -->
-<section>
+<section style="background: linear-gradient(180deg, var(--bg) 0%, #0d0d15 100%);">
   <div class="container">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title fade-in">Choose Your Capital Tier</h2>
+    <p class="section-subtitle fade-in" style="margin-left:auto;margin-right:auto;">One-time license. No monthly fees. All tiers include the complete system — add coins as your account grows ($3K minimum per coin).</p>
     <div class="pricing-grid fade-in">
       <!-- Starter -->
       <div class="price-card">
         <div class="price-tier">Starter</div>
-        <div class="price-amount">$5K</div>
-        <div class="price-period">max capital</div>
+        <div class="price-amount">$500</div>
+        <div class="price-period">$5K max capital</div>
+        <div class="price-desc">Start with 1 coin, add more as you grow</div>
         <ul class="price-features">
-          <li><span style="color:var(--green);">✓</span> 1 Coin</li>
-          <li><span style="color:var(--green);">✓</span> 1 Exchange</li>
-          <li><span style="color:var(--green);">✓</span> All 3 Risk Profiles</li>
-          <li><span style="color:var(--green);">✓</span> Adaptive Intelligence</li>
-          <li><span style="color:var(--green);">✓</span> Scale-Out Exits</li>
+          <li>All 3 risk profiles</li>
+          <li>Smart Exit System</li>
+          <li>Regime detection</li>
+          <li>Scale-out exits</li>
+          <li>Grok sentiment analysis</li>
+          <li>Personal dashboard</li>
+          <li>Lifetime updates</li>
         </ul>
-        <div class="price-revenue">~$500/yr revenue (10%)</div>
+        <button class="select-btn" onclick="alert('Payment integration coming soon — crypto payments launching shortly!')">Select Plan</button>
       </div>
 
       <!-- Trader -->
       <div class="price-card">
         <div class="price-tier">Trader</div>
-        <div class="price-amount">$10K</div>
-        <div class="price-period">max capital</div>
+        <div class="price-amount">$1,000</div>
+        <div class="price-period">$10K max capital</div>
+        <div class="price-desc">Run up to 3 coins across multiple exchanges</div>
         <ul class="price-features">
-          <li><span style="color:var(--green);">✓</span> 2 Coins</li>
-          <li><span style="color:var(--green);">✓</span> 2 Exchanges</li>
-          <li><span style="color:var(--green);">✓</span> All 3 Risk Profiles</li>
-          <li><span style="color:var(--green);">✓</span> Adaptive Intelligence</li>
-          <li><span style="color:var(--green);">✓</span> Scale-Out Exits</li>
+          <li>All 3 risk profiles</li>
+          <li>Smart Exit System</li>
+          <li>Regime detection</li>
+          <li>Scale-out exits</li>
+          <li>Grok sentiment analysis</li>
+          <li>Multi-exchange support</li>
+          <li>Personal dashboard</li>
+          <li>Lifetime updates</li>
         </ul>
-        <div class="price-revenue">~$1,000/yr revenue (10%)</div>
+        <button class="select-btn" onclick="alert('Payment integration coming soon — crypto payments launching shortly!')">Select Plan</button>
       </div>
 
       <!-- Pro -->
       <div class="price-card featured">
         <div class="price-tier">Pro</div>
-        <div class="price-amount" style="color:var(--accent2);">$25K</div>
-        <div class="price-period">max capital</div>
+        <div class="price-amount" style="color:var(--accent2);">$2,500</div>
+        <div class="price-period">$25K max capital</div>
+        <div class="price-desc">The sweet spot — up to 8 coins, full diversification</div>
         <ul class="price-features">
-          <li><span style="color:var(--green);">✓</span> 3 Coins</li>
-          <li><span style="color:var(--green);">✓</span> 3 Exchanges</li>
-          <li><span style="color:var(--green);">✓</span> All 3 Risk Profiles</li>
-          <li><span style="color:var(--green);">✓</span> Adaptive Intelligence</li>
-          <li><span style="color:var(--green);">✓</span> Scale-Out Exits</li>
-          <li><span style="color:var(--green);">✓</span> Priority Support</li>
+          <li>All 3 risk profiles</li>
+          <li>Smart Exit System</li>
+          <li>Regime detection</li>
+          <li>Scale-out exits</li>
+          <li>Grok sentiment analysis</li>
+          <li>Multi-exchange support</li>
+          <li>Personal dashboard</li>
+          <li>Priority support</li>
+          <li>Lifetime updates</li>
         </ul>
-        <div class="price-revenue">~$2,500/yr revenue (10%)</div>
+        <button class="select-btn" onclick="alert('Payment integration coming soon — crypto payments launching shortly!')">Select Plan</button>
       </div>
 
       <!-- Elite -->
       <div class="price-card">
         <div class="price-tier">Elite</div>
-        <div class="price-amount">$50K</div>
-        <div class="price-period">max capital</div>
+        <div class="price-amount">$5,000</div>
+        <div class="price-period">$50K max capital</div>
+        <div class="price-desc">Full portfolio — up to 16 coins, maximum diversification</div>
         <ul class="price-features">
-          <li><span style="color:var(--green);">✓</span> 5 Coins</li>
-          <li><span style="color:var(--green);">✓</span> 5 Exchanges</li>
-          <li><span style="color:var(--green);">✓</span> All 3 Risk Profiles</li>
-          <li><span style="color:var(--green);">✓</span> Adaptive Intelligence</li>
-          <li><span style="color:var(--green);">✓</span> Sector Diversification</li>
-          <li><span style="color:var(--green);">✓</span> Dedicated Support</li>
+          <li>All 3 risk profiles</li>
+          <li>Smart Exit System</li>
+          <li>Regime detection</li>
+          <li>Scale-out exits</li>
+          <li>Grok sentiment analysis</li>
+          <li>Multi-exchange support</li>
+          <li>Sector diversification</li>
+          <li>Dedicated support</li>
+          <li>Lifetime updates</li>
         </ul>
-        <div class="price-revenue">~$5,000/yr revenue (10%)</div>
+        <button class="select-btn" onclick="alert('Payment integration coming soon — crypto payments launching shortly!')">Select Plan</button>
       </div>
 
       <!-- Whale -->
       <div class="price-card">
         <div class="price-tier" style="color:var(--green);">Whale</div>
-        <div class="price-amount" style="color:var(--green);">$100K+</div>
-        <div class="price-period">max capital</div>
+        <div class="price-amount" style="color:var(--green);">$10,000</div>
+        <div class="price-period">$100K+ max capital</div>
+        <div class="price-desc">Institutional-grade — unlimited coins, custom strategies</div>
         <ul class="price-features">
-          <li><span style="color:var(--green);">✓</span> 8 Coins</li>
-          <li><span style="color:var(--green);">✓</span> Unlimited Exchanges</li>
-          <li><span style="color:var(--green);">✓</span> All 3 Risk Profiles</li>
-          <li><span style="color:var(--green);">✓</span> Full Portfolio Suite</li>
-          <li><span style="color:var(--green);">✓</span> Custom Strategies</li>
-          <li><span style="color:var(--green);">✓</span> White Glove Support</li>
+          <li>All 3 risk profiles</li>
+          <li>Smart Exit System</li>
+          <li>Regime detection</li>
+          <li>Scale-out exits</li>
+          <li>Grok sentiment analysis</li>
+          <li>Unlimited exchanges</li>
+          <li>Custom strategies</li>
+          <li>White glove support</li>
+          <li>Lifetime updates</li>
         </ul>
-        <div class="price-revenue">~$10,000+/yr revenue (10%)</div>
+        <button class="select-btn" onclick="alert('Payment integration coming soon — crypto payments launching shortly!')">Select Plan</button>
       </div>
     </div>
   </div>
@@ -224,6 +259,55 @@ section { padding: 80px 0; }
   </div>
 </section>
 
+<!-- License Pays for Itself -->
+<section>
+  <div class="container">
+    <div class="section-label">ROI Calculator</div>
+    <h2 class="section-title fade-in" style="background:var(--gradient1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Your License Pays for Itself</h2>
+    <p class="section-subtitle fade-in" style="margin-left:auto;margin-right:auto;">At 0.35% average daily ROI with 100% profit compounding — every deal's gains reinvest into the next deal's capital</p>
+    <div class="breakeven-grid fade-in">
+      <div class="breakeven-card">
+        <div class="breakeven-tier">Starter</div>
+        <div class="breakeven-price">$500</div>
+        <div style="color:var(--text3);font-size:0.8rem;margin-bottom:8px;">$5K cap</div>
+        <div class="breakeven-daily">~$17.50/day</div>
+        <div class="breakeven-days">29 days to break even</div>
+      </div>
+      <div class="breakeven-card">
+        <div class="breakeven-tier">Trader</div>
+        <div class="breakeven-price">$1,000</div>
+        <div style="color:var(--text3);font-size:0.8rem;margin-bottom:8px;">$10K cap</div>
+        <div class="breakeven-daily">~$35/day</div>
+        <div class="breakeven-days">29 days to break even</div>
+      </div>
+      <div class="breakeven-card">
+        <div class="breakeven-tier">Pro</div>
+        <div class="breakeven-price">$2,500</div>
+        <div style="color:var(--text3);font-size:0.8rem;margin-bottom:8px;">$25K cap</div>
+        <div class="breakeven-daily">~$87.50/day</div>
+        <div class="breakeven-days">29 days to break even</div>
+      </div>
+      <div class="breakeven-card">
+        <div class="breakeven-tier">Elite</div>
+        <div class="breakeven-price">$5,000</div>
+        <div style="color:var(--text3);font-size:0.8rem;margin-bottom:8px;">$50K cap</div>
+        <div class="breakeven-daily">~$175/day</div>
+        <div class="breakeven-days">29 days to break even</div>
+      </div>
+      <div class="breakeven-card">
+        <div class="breakeven-tier">Whale</div>
+        <div class="breakeven-price">$10,000</div>
+        <div style="color:var(--text3);font-size:0.8rem;margin-bottom:8px;">$100K+ cap</div>
+        <div class="breakeven-daily">~$350/day</div>
+        <div class="breakeven-days">29 days to break even</div>
+      </div>
+    </div>
+    <div class="disclaimer fade-in">
+      Past performance does not guarantee future returns. Daily ROI assumes 100% compounding (all profits reinvested). Results vary with market conditions.
+    </div>
+  </div>
+</section>
+
 <!-- Feature Comparison -->
 <section>
   <div class="container">
@@ -235,8 +319,9 @@ section { padding: 80px 0; }
       </thead>
       <tbody>
         <tr><td>Max Capital</td><td>$5K</td><td>$10K</td><td>$25K</td><td>$50K</td><td>$100K+</td></tr>
-        <tr><td>Max Coins</td><td>1</td><td>2</td><td>3</td><td>5</td><td>8</td></tr>
+        <tr><td>Max Coins</td><td>1</td><td>3</td><td>8</td><td>16</td><td>∞</td></tr>
         <tr><td>Max Exchanges</td><td>1</td><td>2</td><td>3</td><td>5</td><td>∞</td></tr>
+        <tr><td>Min Per Coin</td><td colspan="5">$3,000 (ensures meaningful grid depth)</td></tr>
         <tr><td>Risk Profiles</td><td class="feat-check">All 3</td><td class="feat-check">All 3</td><td class="feat-check">All 3</td><td class="feat-check">All 3</td><td class="feat-check">All 3</td></tr>
         <tr><td>Adaptive Intelligence</td><td class="feat-check">✓</td><td class="feat-check">✓</td><td class="feat-check">✓</td><td class="feat-check">✓</td><td class="feat-check">✓</td></tr>
         <tr><td>Scale-Out Exits</td><td class="feat-check">✓</td><td class="feat-check">✓</td><td class="feat-check">✓</td><td class="feat-check">✓</td><td class="feat-check">✓</td></tr>
